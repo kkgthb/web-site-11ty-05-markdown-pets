@@ -15,7 +15,8 @@ group_by_color = function (objects) {
   let objects_by_color = [];
   for (color of current_colors) {
     let objects_for_color = objects_with_a_colors_property.filter((item) => {
-      return item.data.colors?.includes(color);
+      if (!item.data.colors) { return false; }
+      return item.data.colors.includes(color);
     });
     if (!!objects_for_color) {
       objects_by_color.push({ color, objects: objects_for_color });
