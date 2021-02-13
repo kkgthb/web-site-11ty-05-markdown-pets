@@ -1,5 +1,7 @@
-{{ collections.pets.size }}
+<p>There are {{ collections.pets.size }} pet(s).</p>
 
-{%- for pt in pets -%}
-  {{ pt }}
-{%- endfor -%}
+<ul>
+{% for pet in collections.pets %}
+  <li><b>{{ pet.data.type}}</b>:  <a href="{{ pet.url | url }}">{{ pet.data.name }}</a></li>
+{% endfor %}
+</ul>
