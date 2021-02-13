@@ -14,12 +14,6 @@ module.exports = (eleventyConfig) => {
   // Get proper data into .11tydata.json files
   eleventyConfig.setDataDeepMerge(true);
 
-  // Add a "group objects by color" function to template languages
-  eleventyConfig.addFilter(
-    "groupByColor",
-    require("./src/filters/group_by_color.js")
-  );
-
   // Clarify which folder is for input and which folder is for output
   return {
     dir: {
