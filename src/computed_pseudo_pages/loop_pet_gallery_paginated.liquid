@@ -1,0 +1,32 @@
+---
+layout: "layouts/default"
+pagination:
+  data: collections.pets
+  size: 3
+  alias: gallery_pets
+  addAllPagesToCollections: true
+permalink: /pets/gallery/{{ pagination.pageNumber }}/index.html
+#eleventyExcludeFromCollections: true
+---
+
+<h2>Pet gallery page {{ pagination.pageNumber }}'s pets</h2>
+
+<ol>
+{% for pet in gallery_pets %}
+  <li><a href="{{ pet.url | url }}">{{ pet.data.name }}</a></li>
+{% endfor %}
+</ol>
+
+<nav aria-labelledby="my-pagination">
+  <h2 id="my-pagination">All the "pets by color" pages</h2>
+  <ol>
+    <li>{% if page.url != pagination.href.first %}<a href="{{ pagination.href.first }}">First</a>{% else %}First{% endif %}</li>
+    <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+    {%- for pageEntry in pagination.pages %}
+      {%- capture idx -%}{{forloop.index | minus: 1}}{%- endcapture -%}
+      <li>{% if page.url != pagination.hrefs[idx] %}<a href="{{ pagination.hrefs[idx] }}">Page {{ idx }}</a>{% else %}Page {{ idx }}{% endif %}
+    {%- endfor %}
+    <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+    <li>{% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>{% else %}Last{% endif %}</li>
+  </ol>
+</nav>

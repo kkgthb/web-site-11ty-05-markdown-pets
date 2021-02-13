@@ -1,0 +1,24 @@
+---
+layout: "layouts/default"
+permalink: /
+---
+
+<h2>Pets</h2>
+
+<p>There are {{ collections.pets.size }} pet(s).</p>
+
+<ul>
+{% for pet in collections.pets %}
+  <li><b>{{ pet.data.type}}</b>:  <a href="{{ pet.url | url }}">{{ pet.data.name }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Site maps</h2>
+
+<p>There are {{ collections.all.size }} collection items across the board.</p>
+
+<ul>
+{% for item in collections.all %}
+  <li><a href="{{ item.url | url }}">{{ item.data.page.fileSlug }}</a> <i>({{ item.url }})</i></li>
+{% endfor %}
+</ul>
