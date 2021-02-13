@@ -5,7 +5,7 @@ colors:
   - white
 ---
 
-<h1>Dog:  {{ name }}</h1>
+# Dog:  {{ name }}
 
 Woof!
 

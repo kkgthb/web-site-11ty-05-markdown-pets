@@ -4,6 +4,6 @@ colors:
   - tan
 ---
 
-<h1>Dog:  {{ name }}</h1>
+# Dog:  {{ name }}
 
 Jingle jangle tag

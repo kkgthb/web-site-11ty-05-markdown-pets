@@ -5,6 +5,6 @@ colors:
   - white
 ---
 
-<h1>Cat:  {{ name }}</h1>
+# Cat:  {{ name }}
 
 Purrrrrrr

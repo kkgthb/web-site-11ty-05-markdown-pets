@@ -4,6 +4,6 @@ colors:
   - brown
 ---
 
-<h1>Cat:  {{ name }}</h1>
+# Cat:  {{ name }}
 
 What a cutie pie
